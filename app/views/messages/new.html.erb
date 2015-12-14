@@ -1,0 +1,10 @@
+<div class="row">
+    <%= form_for Message.new do |f| %>
+      <div class="form-group">
+        <%= f.text_area 'body', class: 'text-incognito form-control', placeholder: 'message content', rows: "10"  %>
+      </div>
+      
+      
+      <%= f.submit 'send message', class: 'btn btn-incognito-main pull-right' %>
+    <% end %>
+</div>

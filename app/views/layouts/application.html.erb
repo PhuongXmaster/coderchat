@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Incognitochat</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-faded">
+    <div class="collapse navbar-toggleable-xs" id="nav-content">
+      <ul class="nav navbar-nav">
+        <% if signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">sign out</a>
+            </li>
+        <% end %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= messages_path %>">my messages</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<section class="header-11-sub">
+    <div class="container">
+        <%= yield %>
+    </div>
+</section>
+
+</body>
+</html>
