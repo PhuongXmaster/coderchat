@@ -12,12 +12,15 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
-    unless @message.read
-      @message.read = true
-      @message.save
-    else
+    if @message.receiver_id != session[:user_id]
+      @message = nil
+      flash[:error] = "You can only view messges sent to you."
+    elsif @message.read
       @message = nil
       flash[:error] = "You already view the content of this message."
+    else
+      @message.read = true
+      @message.save
     end
   end
 
