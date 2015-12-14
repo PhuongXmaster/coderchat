@@ -6,28 +6,75 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+
+
 <body>
 
-<nav class="navbar navbar-light bg-faded">
-    <div class="collapse navbar-toggleable-xs" id="nav-content">
-      <ul class="nav navbar-nav">
-        <% if signed_in? %>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">sign out</a>
-            </li>
-        <% end %>
-        <li class="nav-item">
-          <a class="nav-link" href="<%= messages_path %>">my messages</a>
-        </li>
-      </ul>
-    </div>
-</nav>
+    <!-- Navigation -->
+    <nav class="navbar navbar-light navbar-fixed-top bg-faded" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand" href="#">Coder Chat</a>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              &#9776;
+            </button>
+            <div class="collapse navbar-toggleable-xs" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="<%= messages_path %>">My messages</a>
+                    </li>
+                    <% if signed_in? %>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/logout">sign out</a>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+          <!-- /.navbar-collapse -->
+    </nav>
 
-<section class="header-11-sub">
-    <div class="container">
-        <%= yield %>
-    </div>
-</section>
+    <!-- Page Content -->
+
+    <%= yield %>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
+
+
+
