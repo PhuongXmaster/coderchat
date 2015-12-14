@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'logout' => 'sessions#destroy'
   get 'login' => 'sessions#new'
+  get 'add_friend' => 'connections#add_friend'
+  get 'unfriend' => 'connections#unfriend'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

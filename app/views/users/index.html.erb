@@ -1,1 +1,7 @@
-<div>chat page</div>
+<div class="container space-buffer">
+  <% @users.in_groups_of(3) do |group| %>
+    <div class="row">
+      <%= render partial: 'user', collection: group.compact %>
+    </div>
+  <% end %>
+</div>

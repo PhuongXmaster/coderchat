@@ -1,10 +1,14 @@
-<div class="row">
-    <%= form_for Message.new do |f| %>
-      <div class="form-group">
-        <%= f.text_area 'body', class: 'text-incognito form-control', placeholder: 'message content', rows: "10"  %>
-      </div>
-      
-      
-      <%= f.submit 'send message', class: 'btn btn-incognito-main pull-right' %>
-    <% end %>
+<div class="container space-buffer">
+    <div class="row">
+    <div class="col-xl-6">
+        <h3>Send a message</h3>
+        <%= form_for Message.new do |f| %>
+          <div class="form-group">
+            <%= f.select :receiver_id, options_for_select(@friends.collect{|p| [p.name, p.id]}, params[:receiver_id]) %>
+            <%= f.text_area 'body', class: 'form-control', placeholder: 'message content', rows: "10"  %>
+          </div>
+          <%= f.submit 'send message', class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+    </div>
 </div>

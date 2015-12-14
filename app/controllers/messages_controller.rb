@@ -1,27 +1,26 @@
 class MessagesController < ApplicationController
   def index
-    @message = Message.where("receiver_id = ?", session[:user_id])
-    
+    @messages = current_user.received_messages.reverse_order
   end
 
   def new
-      
+    @friends = current_user.friends.collect{|f| f.to}
   end
 
   def create
       @message = Message.new(message_params)
-      @message.sender = User.find(session[:user_id])
-      @message.receiver = User.find(session[:user_id])
+      @message.sender = current_user
+      @message.receiver = User.find(message_params[:receiver_id])
 
-      if @message.save 
+      if @message.save
         redirect_to messages_path
       else
         render 'new'
       end
   end
 
-  private 
+  private
   def message_params
-    params.require(:message).permit(:body)
+    params.require(:message).permit(:body, :receiver_id)
   end
 end
