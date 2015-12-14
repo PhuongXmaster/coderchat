@@ -1,4 +1,4 @@
 <%= link_to message_path(message.id), class: "list-group-item #{'unread' unless message.read}" do %>
   <div class="list-group-item-heading"><b><%= message.sender.name %></b> <span class="message-time pull-right"><%= time_ago_in_words(message.created_at) %> ago</span></div>
-  <p class="list-group-item-text"><%= message.body %></p>
+  <p class="list-group-item-text"><%= truncate message.body, length: 45 %></p>
 <% end %>

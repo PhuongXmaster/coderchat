@@ -10,6 +10,17 @@ class MessagesController < ApplicationController
     @messages = current_user.sent_messages.reverse_order
   end
 
+  def show
+    @message = Message.find(params[:id])
+    unless @message.read
+      @message.read = true
+      @message.save
+    else
+      @message = nil
+      flash[:error] = "You already view the content of this message."
+    end
+  end
+
   def new
     @friends = current_user.friends.collect{|f| f.to}
   end

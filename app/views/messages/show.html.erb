@@ -1,0 +1,14 @@
+<div class="container space-buffer">
+  <div class="row">
+    <div class="col-xl-6">
+        <h3>Message content</h3>
+        <%= flash_messages %>
+        <% if @message %>
+          <div>From: <%= @message.sender.name %></div>
+          <div>To: <%= @message.receiver.name %></div>
+          <pre><%= @message.body %></pre>
+        <% end %>
+        <%= link_to "Back", :back %>
+    </div>
+  </div>
+</div>
