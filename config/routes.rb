@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :messages
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'logout' => 'sessions#destroy'
+  get 'login' => 'sessions#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
