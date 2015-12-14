@@ -1,7 +1,9 @@
 <div class="container space-buffer">
+  <h3>Users</h3>
   <% @users.in_groups_of(3) do |group| %>
     <div class="row">
       <%= render partial: 'user', collection: group.compact %>
     </div>
   <% end %>
+  <%= link_to 'Back', :back %>
 </div>

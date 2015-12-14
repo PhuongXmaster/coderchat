@@ -29,6 +29,7 @@ gem 'simple_form'
 gem 'faker'
 gem 'font-awesome-sass'
 gem 'bcrypt', '~> 3.1.7'
+gem 'active_link_to'
 
 
 # Use ActiveModel has_secure_password
