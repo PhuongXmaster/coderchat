@@ -1,6 +1,13 @@
 class MessagesController < ApplicationController
+
+  before_action :check_login
+
   def index
     @messages = current_user.received_messages.reverse_order
+  end
+
+  def outbox
+    @messages = current_user.sent_messages.reverse_order
   end
 
   def new

@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   def is_friend?(user_id)
     current_user.friends.where(:to_id => user_id).any?
   end
+
+  def check_login
+    redirect_to login_path unless signed_in?
+  end
 end

@@ -1,4 +1,4 @@
 <%= link_to message_path(message.id), class: "list-group-item #{'unread' unless message.read}" do %>
-  <h4 class="list-group-item-heading"><%= message.sender.name %></h4>
+  <div class="list-group-item-heading"><b><%= message.sender.name %></b> <span class="message-time pull-right"><%= time_ago_in_words(message.created_at) %> ago</span></div>
   <p class="list-group-item-text"><%= message.body %></p>
 <% end %>
